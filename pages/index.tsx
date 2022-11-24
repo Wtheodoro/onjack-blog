@@ -1,6 +1,8 @@
+import { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
-export default function Home() {
+const Welcome: NextPage = () => {
   return (
     <div>
       <Head>
@@ -14,9 +16,12 @@ export default function Home() {
 
       <main>
         <h1 className='text-3xl font-bold underline'>Hello world!</h1>
+        <Link href='/home'>Okay !</Link>
       </main>
 
       <footer></footer>
     </div>
   )
 }
+
+export default Welcome
