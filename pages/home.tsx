@@ -1,9 +1,10 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
 import { IPosts } from '../types/posts'
-import { IUsers } from '../types/users'
+import { IUsers, IUsersDetails } from '../types/users'
 
 interface IHomePage {
   posts: IPosts[]
@@ -11,8 +12,6 @@ interface IHomePage {
 }
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
-  console.log(posts)
-  console.log(users)
   return (
     <div>
       <Head>
@@ -27,7 +26,9 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
       <main>
         <section>
           {users.map(({ id, name }) => (
-            <p key={id}>{name}</p>
+            <div key={id}>
+              <Link href={`user/${id}`}>{name}</Link>
+            </div>
           ))}
         </section>
       </main>

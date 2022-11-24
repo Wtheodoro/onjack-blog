@@ -3,12 +3,16 @@ import React, {
   ReactElement,
   useContext,
   useReducer,
-  useState,
 } from 'react'
+import { IUsersDetails } from '../types/users'
 
-const UsersStateContext = createContext({})
+interface IUsersDetailsState {
+  usersDetails: IUsersDetails[]
+}
 
-const UsersDispatchContext = createContext({})
+const UsersStateContext = createContext({} as IUsersDetailsState)
+
+const UsersDispatchContext = createContext({} as any)
 
 const usersDetailsReducer = (state: any, action: any) => {
   const { type, payload } = action
