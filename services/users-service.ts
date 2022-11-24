@@ -4,7 +4,7 @@ const usersService = {
   getAllUsers: async () =>
     await fetch(`${API_URL}/users`).then((response) => response.json()),
 
-  getUserDetails: async (userId: string) =>
+  getUserDetails: async (userId: number) =>
     await fetch(`${API_URL}/users/${userId}`).then((response) =>
       response.json()
     ),
