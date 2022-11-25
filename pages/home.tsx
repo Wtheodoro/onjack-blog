@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import Router from 'next/router'
+import avatarGenerator from '../helpes/avatarGenerator'
 import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
@@ -12,11 +14,17 @@ interface IHomePage {
   users: IUsers[]
 }
 
-const DynamicPost = dynamic(() => import('../components/postCard'), {
-  ssr: false,
-})
-
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
+  const pushToDetail = (postTitle: string, postId: number) => {
+    Router.push({
+      pathname: `/post/${postTitle}-${postId}`,
+      query: {
+        postTitle,
+        postId,
+      },
+    })
+  }
+
   // just to diversify the posts list
   const shuffledPosts = shuffleArray(posts)
   return (
@@ -44,12 +52,16 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
           {shuffledPosts.map((post) => {
             const postOwner = users.find((user) => user.id === post.userId)
             const randomReadTime = Math.floor(Math.random() * 4) + 1
+            const avatarUrl = avatarGenerator(post.userId)
+
             return (
               <DynamicPost
                 key={post.id}
-                {...post}
                 name={postOwner?.name || 'Anonymous'}
                 readTime={randomReadTime}
+                onPostClick={pushToDetail}
+                profilePicture={avatarUrl}
+                {...post}
               />
             )
           })}
@@ -73,5 +85,9 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
+
+const DynamicPost = dynamic(() => import('../components/postCard'), {
+  ssr: false,
+})
 
 export default Home

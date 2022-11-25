@@ -9,6 +9,8 @@ const postCardsProps = {
   id: 5,
   title: 'title jest',
   userId: 11,
+  onPostClick: () => {},
+  profilePicture: 'https://api.multiavatar.com/4613641.png',
 }
 
 describe('<PostCard />', () => {
