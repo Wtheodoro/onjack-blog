@@ -22,4 +22,16 @@ describe('<Button />', () => {
 
     expect(button).toBeInTheDocument()
   })
+
+  it('Should call onClick function when button is clicked', () => {
+    const mockCallBack = jest.fn()
+
+    render(<Button onClick={mockCallBack} {...ButtonProps} />)
+
+    const button = screen.getByTestId('button-test-id')
+
+    fireEvent.click(button)
+
+    expect(mockCallBack).toHaveBeenCalled()
+  })
 })

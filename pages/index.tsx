@@ -1,9 +1,10 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
+import Router from 'next/router'
 import { Button } from '../components'
 
 const Welcome: NextPage = () => {
+  const handleGoToBlogClick = () => Router.push('/home')
   return (
     <div>
       <Head>
@@ -27,9 +28,7 @@ const Welcome: NextPage = () => {
           <p className='text-center'>
             Whey lost time reading a book when you can read tons of Lorem Ipsum?
           </p>
-          <Link href='/home'>
-            <Button>Go To Blog!</Button>
-          </Link>
+          <Button onClick={handleGoToBlogClick}>Go To Blog!</Button>
         </div>
 
         <video
