@@ -6,7 +6,10 @@ interface IButton {
 
 const Button: React.FC<IButton> = ({ children }) => {
   return (
-    <button className='bg-red py-4 px-8 text-white rounded-lg'>
+    <button
+      data-testid='button-test-id'
+      className='bg-red py-4 px-8 text-white rounded-lg'
+    >
       {children}
     </button>
   )
