@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Router from 'next/router'
-import { Button } from '../components'
+import { Button, Footer } from '../components'
 
 const Welcome: NextPage = () => {
   const handleGoToBlogClick = () => Router.push('/home')
@@ -15,11 +15,6 @@ const Welcome: NextPage = () => {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      {/* <main>
-        <Link href='/home'>Okay !</Link>
-
-      </main> */}
 
       <main className='relative flex items-center justify-center h-screen mb-12 overflow-hidden p-4'>
         <div className='relative flex flex-col justify-center items-center z-30 p-5 text-2xl text-white bg-black bg-opacity-70 rounded-xl space-y-5'>
@@ -42,7 +37,7 @@ const Welcome: NextPage = () => {
         </video>
       </main>
 
-      <footer></footer>
+      <Footer />
     </div>
   )
 }
