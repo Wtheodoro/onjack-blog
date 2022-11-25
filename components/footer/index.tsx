@@ -3,7 +3,7 @@ import React from 'react'
 const Footer: React.FC = () => (
   <footer
     data-testid='footer-test-id'
-    className='fixed bottom-0 flex justify-center items-center bg-black w-screen h-16'
+    className='fixed bottom-0 flex justify-center items-center bg-black w-screen h-14 md:hidden'
   >
     <span className='text-white'>
       Made with ❤️ by:{' '}

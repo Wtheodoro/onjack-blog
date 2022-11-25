@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Router from 'next/router'
-import { Footer } from '../components'
+import { Footer, Header } from '../components'
 import avatarGenerator from '../helpes/avatarGenerator'
 import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
@@ -29,7 +29,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
   // just to diversify the posts list
   const shuffledPosts = shuffleArray(posts)
   return (
-    <div>
+    <div className='mt-16 md:mt-0 md:ml-16'>
       <Head>
         <title>OnJack</title>
         <meta
@@ -38,6 +38,8 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
+      <Header />
 
       <main>
         {/* <section>
