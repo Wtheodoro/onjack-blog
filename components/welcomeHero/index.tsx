@@ -51,7 +51,7 @@ const orbitalDots = [
 
 const WelcomeHero = () => {
   return (
-    <div className='relative'>
+    <div className='relative' data-testid='welcomeHero-test-id'>
       {/* center */}
       <Image
         src='https://api.multiavatar.com/4612441.png'
