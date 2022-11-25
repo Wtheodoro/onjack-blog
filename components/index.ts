@@ -1,3 +1,4 @@
+import Button from './button'
 import PostCard from './postCard'
 
-export { PostCard }
+export { Button, PostCard }

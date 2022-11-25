@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import Button from '../components/button'
+import { Button } from '../components'
 
 const Welcome: NextPage = () => {
   return (
