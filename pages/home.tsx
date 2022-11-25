@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Link from 'next/link'
-import { PostCard } from '../components'
 import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
@@ -12,6 +11,10 @@ interface IHomePage {
   posts: IPosts[]
   users: IUsers[]
 }
+
+const DynamicPost = dynamic(() => import('../components/postCard'), {
+  ssr: false,
+})
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
   // just to diversify the posts list
@@ -42,7 +45,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
             const postOwner = users.find((user) => user.id === post.userId)
             const randomReadTime = Math.floor(Math.random() * 4) + 1
             return (
-              <PostCard
+              <DynamicPost
                 key={post.id}
                 {...post}
                 name={postOwner?.name || 'Anonymous'}

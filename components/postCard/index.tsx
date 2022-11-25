@@ -20,6 +20,7 @@ const PostCard: React.FC<IPostCard> = ({
   userId,
 }) => {
   const avatarUrl = avatarGenerator(userId)
+
   return (
     <div
       data-testid='post-card-test-id'
