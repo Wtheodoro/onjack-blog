@@ -18,7 +18,7 @@ const UserDetail: NextPage = () => {
 
   const userDetailDispatch = useUsersDetailsDispatchContext()
   const { usersDetails } = useUsersDetailsStateContext()
-  console.log(usersDetails)
+  console.log(userDetailDispatch)
 
   useEffect(() => {
     // Verify if this detail is already on context API

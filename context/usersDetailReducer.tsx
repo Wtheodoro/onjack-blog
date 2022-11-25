@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  Dispatch,
   ReactElement,
   useContext,
   useReducer,
@@ -12,7 +13,7 @@ interface IUsersDetailsState {
 
 const UsersStateContext = createContext({} as IUsersDetailsState)
 
-const UsersDispatchContext = createContext({} as any)
+const UsersDispatchContext = createContext({} as Dispatch<any>)
 
 const usersDetailsReducer = (state: any, action: any) => {
   const { type, payload } = action

@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { PostCard } from '../components'
+import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
 import { IPosts } from '../types/posts'
@@ -12,6 +14,8 @@ interface IHomePage {
 }
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
+  // just to diversify the posts list
+  const shuffledPosts = shuffleArray(posts)
   return (
     <div>
       <Head>
@@ -24,12 +28,28 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
       </Head>
 
       <main>
-        <section>
+        {/* <section>
           {users.map(({ id, name }) => (
             <div key={id}>
               <Link href={`user/${id}`}>{name}</Link>
             </div>
           ))}
+        </section> */}
+
+        {/* posts */}
+        <section className='p-11 space-y-10'>
+          {shuffledPosts.map((post) => {
+            const postOwner = users.find((user) => user.id === post.userId)
+            const randomReadTime = Math.floor(Math.random() * 4) + 1
+            return (
+              <PostCard
+                key={post.id}
+                {...post}
+                name={postOwner?.name || 'Anonymous'}
+                readTime={randomReadTime}
+              />
+            )
+          })}
         </section>
       </main>
 
