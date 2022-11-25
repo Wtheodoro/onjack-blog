@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import React from 'react'
-import avatarGenerator from '../../helpes/avatarGenerator'
+import Image from 'next/image'
 
 interface IPostCard {
   body: string

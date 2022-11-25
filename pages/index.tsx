@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Router from 'next/router'
-import { Button, Footer } from '../components'
+import { Button, Footer, WelcomeHero } from '../components'
 
 const Welcome: NextPage = () => {
   const handleGoToBlogClick = () => Router.push('/home')
@@ -16,12 +16,17 @@ const Welcome: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='relative flex items-center justify-center h-screen mb-12 overflow-hidden p-4'>
-        <div className='relative flex flex-col justify-center items-center z-30 p-5 text-2xl text-white bg-black bg-opacity-70 rounded-xl space-y-5'>
-          <h1 className='text-red text-4xl'>OnJack</h1>
-          <p>Welcome to our blog</p>
-          <p className='text-center'>
-            Whey lost time reading a book when you can read tons of Lorem Ipsum?
+      <main className='relative flex items-center justify-center h-screen mb-12 overflow-hidden'>
+        <div className='relative flex flex-col justify-center items-center w-screen h-screen z-30 p-5 text-2xl text-black bg-white bg-opacity-70 space-y-5'>
+          <h1 className='text-darkBlue text-7xl mb-10'>OnJack</h1>
+
+          <WelcomeHero />
+
+          <p className='text-3xl font-bold text-center mt-4'>
+            Best Blog app to spend time !
+          </p>
+          <p className='text-center opacity-60 max-w-2xl'>
+            Why spend time reading a book when you can read tons of Lorem Ipsum?
           </p>
           <Button onClick={handleGoToBlogClick}>Go To Blog!</Button>
         </div>
