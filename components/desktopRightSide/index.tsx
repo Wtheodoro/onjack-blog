@@ -16,11 +16,11 @@ const usefulLinks = [
     link: 'https://www.linkedin.com/in/walisonteodoro/',
   },
   {
-    text: "This is the best song with the best video clip and you can't prove otherwise",
+    text: "This is the best song with the best video clip and you can't prove otherwise. 🔈",
     link: 'https://www.youtube.com/watch?v=h_D3VFfhvs4',
   },
   {
-    text: 'And this is the second best.',
+    text: 'And this is the second best. 🔈',
     link: 'https://www.youtube.com/watch?v=oRdxUFDoQe0',
   },
 ]
