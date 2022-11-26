@@ -17,7 +17,7 @@ const Header = () => {
         <Logo size='small' />
       </Link>
 
-      <a href='https://www.walisontsx.com/'>
+      <a href='https://www.walisontsx.com/' target='__blank'>
         <Image
           src='/samurai-mask.jpeg'
           width={52}
