@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 import { IComments } from '../../types/posts'
 
@@ -23,12 +23,23 @@ const PostCard: React.FC<IPostCard> = ({
   showComments,
   comments,
 }) => {
+  const postRef = useRef<any>()
   const formatNickName = (email: string) => email.split('@').at(0)
+
+  const scrollIntoPost = () =>
+    setTimeout(() => {
+      postRef.current.scrollIntoView({ behavior: 'smooth' })
+    }, 300)
+
   return (
     <div
       data-testid='post-card-test-id'
       className='space-y-4 border-b border-b-black/30 pb-4 max-w-4xl cursor-pointer'
-      onClick={() => onPostClick(id)}
+      onClick={() => {
+        onPostClick(id)
+        scrollIntoPost()
+      }}
+      ref={postRef}
     >
       <div className='flex justify-between text-sm text-black space-x-4'>
         <div className='flex items-center space-x-4'>
