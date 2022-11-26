@@ -27,7 +27,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
   // just to diversify the posts list
   const shuffledPosts = shuffleArray(posts)
   return (
-    <div className='mt-16 md:mt-0 md:ml-16'>
+    <div className='mt-16 md:mt-0 md:ml-16 md:mr-96 flex justify-center'>
       <Head>
         <title>OnJack</title>
         <meta
