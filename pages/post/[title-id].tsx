@@ -1,5 +1,6 @@
 import { NextRouter, useRouter } from 'next/router'
 import React from 'react'
+import { DesktopRightSide, Header } from '../../components'
 
 const FullPost = () => {
   const router = useRouter()
@@ -9,8 +10,11 @@ const FullPost = () => {
   }: NextRouter = router
   return (
     <div>
-      <p>{postTitle}</p>
-      <p>{postId}</p>
+      <Header />
+
+      <main>XXXXXXX</main>
+
+      <DesktopRightSide />
     </div>
   )
 }

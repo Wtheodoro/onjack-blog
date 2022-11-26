@@ -25,7 +25,7 @@ const DesktopRightSide = () => {
   return (
     <div
       data-testid='desktopRightSide-test-id'
-      className='w-96 border-l-[1px] border-black/30 hidden md:block p-8'
+      className='fixed right-0 top-0 bottom-0 w-96 h-screen border-l-[1px] border-black/30 hidden md:block p-8'
     >
       <div className='bg-black py-2 px-10 rounded-full text-white flex justify-center items-center'>
         some interesting information

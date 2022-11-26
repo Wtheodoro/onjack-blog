@@ -17,12 +17,10 @@ interface IHomePage {
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
   const pushToDetail = (postTitle: string, postId: number) => {
+    const postTitleNormalized = postTitle.replace(/ /g, '-')
+
     Router.push({
-      pathname: `/post/${postTitle}-${postId}`,
-      query: {
-        postTitle,
-        postId,
-      },
+      pathname: `/post/${postTitleNormalized}-id:${postId}`,
     })
   }
 
@@ -41,7 +39,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
 
       <Header />
 
-      <main className='flex justify-between'>
+      <main>
         {/* <section>
           {users.map(({ id, name }) => (
             <div key={id}>
