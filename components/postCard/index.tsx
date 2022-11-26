@@ -23,7 +23,7 @@ const PostCard: React.FC<IPostCard> = ({
   return (
     <div
       data-testid='post-card-test-id'
-      className='space-y-4 border-b border-b-black pb-4 max-w-4xl cursor-pointer'
+      className='space-y-4 border-b border-b-black/30 pb-4 max-w-4xl cursor-pointer'
       onClick={() => onPostClick(title, id)}
     >
       <div className='flex justify-between text-sm text-black space-x-4'>
