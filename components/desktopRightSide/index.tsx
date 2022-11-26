@@ -21,7 +21,7 @@ const usefulLinks = [
   },
   {
     text: 'And this is the second best. 🔈',
-    link: 'https://www.youtube.com/watch?v=oRdxUFDoQe0',
+    link: 'https://www.youtube.com/watch?v=cFkZDhwqoHg',
   },
 ]
 
