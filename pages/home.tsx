@@ -2,13 +2,18 @@ import { GetStaticProps, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Router from 'next/router'
+import { useEffect, useState } from 'react'
+import {
+  usePostsCommentsStateContext,
+  usePostsCommentsDispatchContext,
+} from '../context/postsCommentsReducer'
 import { DesktopRightSide, Footer, Header } from '../components'
 import avatarGenerator from '../helpes/avatarGenerator'
 import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
-import { IPosts } from '../types/posts'
-import { IUsers, IUsersDetails } from '../types/users'
+import { IComments, IPosts } from '../types/posts'
+import { IUsers } from '../types/users'
 
 interface IHomePage {
   posts: IPosts[]
@@ -16,16 +21,40 @@ interface IHomePage {
 }
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
-  const pushToDetail = (postTitle: string, postId: number) => {
-    const postTitleNormalized = postTitle.replace(/ /g, '-')
+  const [selectedPostId, setSelectedPostId] = useState<number | undefined>(0)
+  const [shuffledPosts, setShuffledPosts] = useState<IPosts[]>()
 
-    Router.push({
-      pathname: `/post/${postTitleNormalized}-id:${postId}`,
-    })
+  const postCommentsDispatch = usePostsCommentsDispatchContext()
+  const { postsComments } = usePostsCommentsStateContext()
+
+  const handlePostClick = (postId: number) => {
+    if (postId === selectedPostId) return setSelectedPostId(undefined)
+
+    const fetchAndStoreComments = async (postId: number) => {
+      const postCommentsData = await postsService.getPostComments(postId)
+
+      postCommentsDispatch({
+        type: 'ADD_POST_COMMENTS',
+        payload: postCommentsData,
+      })
+    }
+
+    // Verify if the current post comments was already fetched
+    const isCurrentPostCommentsStoraged = Boolean(
+      postsComments.find((el: IComments) => el.postId === postId)
+    )
+
+    if (!isCurrentPostCommentsStoraged) fetchAndStoreComments(postId)
+
+    setSelectedPostId(postId)
   }
 
   // just to diversify the posts list
-  const shuffledPosts = shuffleArray(posts)
+  useEffect(() => {
+    const shuffledPosts = shuffleArray(posts)
+    setShuffledPosts(shuffledPosts)
+  }, [posts])
+
   return (
     <div className='mt-16 md:mt-0 md:ml-16 md:mr-96 flex justify-center'>
       <Head>
@@ -40,28 +69,24 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
       <Header />
 
       <main>
-        {/* <section>
-          {users.map(({ id, name }) => (
-            <div key={id}>
-              <Link href={`user/${id}`}>{name}</Link>
-            </div>
-          ))}
-        </section> */}
-
         {/* posts */}
         <section className='p-11 space-y-10'>
-          {shuffledPosts.map((post) => {
+          {shuffledPosts?.map((post: IPosts) => {
             const postOwner = users.find((user) => user.id === post.userId)
-            const randomReadTime = Math.floor(Math.random() * 4) + 1
             const avatarUrl = avatarGenerator(post.userId)
+            const showComments = selectedPostId === post.id
+            const currentPostComments = postsComments.filter(
+              (comment) => comment.postId === post.id
+            )
 
             return (
               <DynamicPost
                 key={post.id}
                 name={postOwner?.name || 'Anonymous'}
-                readTime={randomReadTime}
-                onPostClick={pushToDetail}
+                onPostClick={handlePostClick}
                 profilePicture={avatarUrl}
+                showComments={showComments}
+                comments={currentPostComments}
                 {...post}
               />
             )

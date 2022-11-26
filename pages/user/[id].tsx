@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import {
   useUsersDetailsDispatchContext,
   useUsersDetailsStateContext,
-} from '../../context/usersDetailReducer'
+} from '../../context/postsCommentsReducer'
 import usersService from '../../services/users-service'
 import { IUsersDetails } from '../../types/users'
 

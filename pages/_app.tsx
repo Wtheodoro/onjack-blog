@@ -1,11 +1,11 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { UsersDetailsContextProvider } from '../context/usersDetailReducer'
+import { PostsCommentsContextProvider } from '../context/postsCommentsReducer'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <UsersDetailsContextProvider>
+    <PostsCommentsContextProvider>
       <Component {...pageProps} />
-    </UsersDetailsContextProvider>
+    </PostsCommentsContextProvider>
   )
 }

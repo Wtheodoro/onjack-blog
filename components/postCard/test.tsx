@@ -4,13 +4,14 @@ import PostCard from '.'
 
 const postCardsProps = {
   name: 'jest',
-  readTime: 8,
   body: 'post body jest',
   id: 5,
   title: 'title jest',
   userId: 11,
   onPostClick: () => {},
   profilePicture: 'https://api.multiavatar.com/4613641.png',
+  showComments: false,
+  comments: [],
 }
 
 describe('<PostCard />', () => {
@@ -30,16 +31,8 @@ describe('<PostCard />', () => {
     expect(postOwnerName).toBeInTheDocument()
   })
 
-  it('Post must have the correct read time', () => {
-    render(<PostCard {...postCardsProps} readTime={7} />)
-
-    const postReadTime = screen.getByText(/7 min read/i)
-
-    expect(postReadTime).toBeInTheDocument()
-  })
-
   it('Post must have the correct body text', () => {
-    render(<PostCard {...postCardsProps} title='The correct body text' />)
+    render(<PostCard {...postCardsProps} body='The correct body text' />)
 
     const postTitle = screen.getByText(/the correct body text/i)
 
@@ -52,5 +45,17 @@ describe('<PostCard />', () => {
     const postTitle = screen.getByText(/the correct title/i)
 
     expect(postTitle).toBeInTheDocument()
+  })
+
+  it('Should open comments container when post is clicked', async () => {
+    const mockCallBack = jest.fn()
+
+    render(<PostCard {...postCardsProps} onPostClick={mockCallBack} />)
+
+    const card = screen.getByTestId('post-card-test-id')
+
+    fireEvent.click(card)
+
+    expect(mockCallBack).toHaveBeenCalledTimes(1)
   })
 })

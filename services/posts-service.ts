@@ -4,8 +4,8 @@ const postsService = {
   getAllPosts: async () =>
     await fetch(`${API_URL}/posts`).then((response) => response.json()),
 
-  getPostComments: async (postId: string) =>
-    await fetch(`${API_URL}/${postId}/comments`).then((response) =>
+  getPostComments: async (postId: number) =>
+    await fetch(`${API_URL}/posts/${postId}/comments`).then((response) =>
       response.json()
     ),
 }

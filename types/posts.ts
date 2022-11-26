@@ -4,3 +4,11 @@ export interface IPosts {
   title: string
   userId: number
 }
+
+export interface IComments {
+  postId: number
+  id: number
+  name: string
+  email: string
+  body: string
+}
