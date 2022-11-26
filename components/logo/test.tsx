@@ -6,7 +6,7 @@ describe('<Logo />', () => {
   it('Should render the Logo component correctly', () => {
     render(<Logo />)
 
-    const logo = screen.getByTestId('header-test-id')
+    const logo = screen.getByTestId('logo-test-id')
 
     expect(logo).toBeInTheDocument()
   })

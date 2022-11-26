@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Router from 'next/router'
-import { Footer, Header } from '../components'
+import { DesktopRightSide, Footer, Header } from '../components'
 import avatarGenerator from '../helpes/avatarGenerator'
 import shuffleArray from '../helpes/shuffleArray'
 import postsService from '../services/posts-service'
@@ -41,7 +41,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
 
       <Header />
 
-      <main>
+      <main className='flex justify-between'>
         {/* <section>
           {users.map(({ id, name }) => (
             <div key={id}>
@@ -69,6 +69,8 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
             )
           })}
         </section>
+
+        <DesktopRightSide />
       </main>
 
       <Footer />

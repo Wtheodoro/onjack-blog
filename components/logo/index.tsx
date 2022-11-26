@@ -6,7 +6,10 @@ interface ILogo {
 
 const Logo: React.FC<ILogo> = ({ size = 'big' }) => {
   return (
-    <h1 className={`text-darkBlue ${size === 'big' ? 'text-7xl' : 'text-4xl'}`}>
+    <h1
+      data-testid='logo-test-id'
+      className={`text-darkBlue ${size === 'big' ? 'text-7xl' : 'text-4xl'}`}
+    >
       OnJack
     </h1>
   )
