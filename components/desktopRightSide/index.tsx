@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Button from '../button'
 
 const usefulLinks = [
   {
@@ -29,14 +28,14 @@ const DesktopRightSide = () => {
   return (
     <div
       data-testid='desktopRightSide-test-id'
-      className='fixed right-0 top-0 bottom-0 w-96 h-screen border-l-[1px] border-black/30 hidden md:block p-8'
+      className='fixed right-0 top-0 bottom-0 hidden md:flex md:flex-col md:justify-between w-96 h-screen border-l-[1px] border-black/30'
     >
-      <div className='bg-black py-2 px-10 rounded-full text-white flex justify-center items-center'>
+      <div className='bg-black py-2 px-10 rounded-full text-white flex justify-center items-center mt-8 mx-8'>
         some interesting information
       </div>
 
-      <div>
-        <div className='flex items-center space-x-2 my-10'>
+      <div className='mx-8'>
+        <div className='flex items-center space-x-2'>
           <div className='w-2 h-2 bg-green-500 rounded-full' />
           <span>Useful Links</span>
         </div>
@@ -57,6 +56,10 @@ const DesktopRightSide = () => {
             </a>
           </div>
         ))}
+      </div>
+
+      <div className='h-10 w-full bg-black flex justify-center items-center'>
+        <span className='text-white'>Made with ❤️ by: Walison</span>
       </div>
     </div>
   )
