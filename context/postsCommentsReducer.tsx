@@ -5,10 +5,10 @@ import React, {
   useContext,
   useReducer,
 } from 'react'
-import { IComments } from '../types/posts'
+import { IComment } from '../types/posts'
 
 interface IUsersDetailsState {
-  postsComments: IComments[]
+  postsComments: IComment[]
 }
 
 const PostsCommentsStateContext = createContext({} as IUsersDetailsState)

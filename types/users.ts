@@ -1,4 +1,4 @@
-export interface IUsers {
+export interface IUser {
   email: string
   id: number
   name: string
@@ -7,7 +7,7 @@ export interface IUsers {
   website: string
 }
 
-export interface IUsersDetails {
+export interface IUsersDetail {
   email: string
   id: number
   name: string

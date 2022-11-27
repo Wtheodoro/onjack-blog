@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import {
   usePostsCommentsStateContext,
@@ -12,17 +11,17 @@ import avatarGenerator from '../helpers/avatarGenerator'
 import shuffleArray from '../helpers/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
-import { IComments, IPosts } from '../types/posts'
-import { IUsers } from '../types/users'
+import { IComment, IPost } from '../types/posts'
+import { IUser } from '../types/users'
 
 interface IHomePage {
-  posts: IPosts[]
-  users: IUsers[]
+  posts: IPost[]
+  users: IUser[]
 }
 
 const Home: NextPage<IHomePage> = ({ posts, users }) => {
   const [selectedPostId, setSelectedPostId] = useState<number | undefined>(0)
-  const [shuffledPosts, setShuffledPosts] = useState<IPosts[]>()
+  const [shuffledPosts, setShuffledPosts] = useState<IPost[]>()
 
   const postCommentsDispatch = usePostsCommentsDispatchContext()
   const { postsComments } = usePostsCommentsStateContext()
@@ -41,7 +40,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
 
     // Verify if the current post comments was already fetched
     const isCurrentPostCommentsStoraged = Boolean(
-      postsComments.find((el: IComments) => el.postId === postId)
+      postsComments.find((el: IComment) => el.postId === postId)
     )
 
     if (!isCurrentPostCommentsStoraged) fetchAndStoreComments(postId)
@@ -71,7 +70,7 @@ const Home: NextPage<IHomePage> = ({ posts, users }) => {
       <main>
         {/* posts */}
         <section className='p-11 space-y-10'>
-          {shuffledPosts?.map((post: IPosts) => {
+          {shuffledPosts?.map((post: IPost) => {
             const postOwner = users.find((user) => user.id === post.userId)
             const avatarUrl = avatarGenerator(post.userId)
             const showComments = selectedPostId === post.id
