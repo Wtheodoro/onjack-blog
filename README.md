@@ -2,7 +2,7 @@
 
 Check the deploy [`preview`](https://www.onjack-social.walisontsx.com/)
 
-![GIF](https://github.com/Wtheodoro/wookie-movies/blob/main/wookie/public/gif/2022-10-26%2017.58.40.gif)
+![GIF](https://github.com/Wtheodoro/onjack-social-media/blob/main/public/gif/onjack-preview.gif)
 
 ## `Project purpose`
 
