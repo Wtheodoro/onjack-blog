@@ -2,7 +2,7 @@
 
 Check the deploy [`preview`](https://www.onjack-social.walisontsx.com/)
 
-![GIF](https://github.com/Wtheodoro/onjack-social-media/blob/main/public/gif/onjack-preview.gif?raw=true)
+![GIF](https://github.com/Wtheodoro/onjack-social-media/blob/main/public/gif/onjack-preview.gif)
 
 ## `Project purpose`
 
