@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Image from 'next/image'
-import { IComments } from '../../types/posts'
+import { IComment } from '../../types/posts'
 
 interface IPostCard {
   body: string
@@ -10,7 +10,7 @@ interface IPostCard {
   id: number
   onPostClick: (postId: number) => void
   showComments: boolean
-  comments: IComments[]
+  comments: IComment[]
 }
 
 const PostCard: React.FC<IPostCard> = ({
