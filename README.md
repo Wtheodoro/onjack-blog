@@ -23,7 +23,9 @@ Check the deploy [`preview`](https://www.onjack-social.walisontsx.com/)
 
 ### `clone`
 
-First you must clone the repository.
+First you must clone the repository, I suggest you to use this command.
+
+    git clone https://github.com/Wtheodoro/onjack-social-media
 
 ### `Install the dependencies`
 
