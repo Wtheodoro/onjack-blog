@@ -8,8 +8,8 @@ import {
   usePostsCommentsDispatchContext,
 } from '../context/postsCommentsReducer'
 import { DesktopRightSide, Footer, Header } from '../components'
-import avatarGenerator from '../helpes/avatarGenerator'
-import shuffleArray from '../helpes/shuffleArray'
+import avatarGenerator from '../helpers/avatarGenerator'
+import shuffleArray from '../helpers/shuffleArray'
 import postsService from '../services/posts-service'
 import usersService from '../services/users-service'
 import { IComments, IPosts } from '../types/posts'
