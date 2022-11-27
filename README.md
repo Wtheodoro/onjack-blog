@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OnJack web app
 
-## Getting Started
+Check the deploy [`preview`](https://www.onjack-social.walisontsx.com/)
 
-First, run the development server:
+![GIF](https://github.com/Wtheodoro/wookie-movies/blob/main/wookie/public/gif/2022-10-26%2017.58.40.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## `Project purpose`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Pass on a interview test
+- Practice React/NextJS
+- Practice Tailwind
+- Practice Clean Code fundamentals
+- Reducer with contextAPI
+- Test with Jest + React Testing Library
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## `Built with`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- React
+- NextJS
+- TailwindCSS
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## `Step by step to run this project`
 
-## Learn More
+### `clone`
 
-To learn more about Next.js, take a look at the following resources:
+First you must clone the repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `Install the dependencies`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project depends on some dependencies, so the command **npm install** or **yarn** takes care of installing all of them
 
-## Deploy on Vercel
+    npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    yarn
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### `Run the project`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+\*Or other door indicated by your terminal
+
+    npm run dev
+
+    yarn dev
+
+### `Run tests`
+
+This project has some tests with Jest/ React testing library, so the command **npm run test** run Cypress environment to watch all thoses tests. You can take a look on scripts inside package.json
+
+    npm run test
+
+    yarn test
